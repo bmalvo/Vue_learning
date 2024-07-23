@@ -19,6 +19,7 @@
         <h2 v-bind:class="vueClass2">
             {{'Random number: ' + Math.ceil(Math.random() * 6 )}}
         </h2>
+        <p :style="{ fontSize: size + 'px'}">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -30,7 +31,8 @@
       return {
         message: "Hello World!",
         vueClass1: 'pinkBG',
-        vueClass2: 'seagreenBG'
+        vueClass2: 'seagreenBG',
+        size: 24,
       }
     }
   })
