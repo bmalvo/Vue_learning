@@ -20,6 +20,15 @@
             {{'Random number: ' + Math.ceil(Math.random() * 6 )}}
         </h2>
         <p :style="{ fontSize: size + 'px'}">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p v-if="stockCount > 5">Is in the stock</p>
+        <p v-else-if="stockCount = 1">Is but not many!</p>
+        <p v-else>Not in the stock</p>
+        <div v-if="text.includes('pizza')">
+            <img src="https://as1.ftcdn.net/v2/jpg/01/33/61/72/1000_F_133617244_dWdivRXwoLVzowl1kn3iFP9JGcuNd8n6.jpg" alt="pizza pic">
+        </div>
+        <div v-show="vShow">
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -33,6 +42,9 @@
         vueClass1: 'pinkBG',
         vueClass2: 'seagreenBG',
         size: 24,
+        stockCount : 1,
+        text: 'I like pizza and tacos',
+        vShow: true,
       }
     }
   })
