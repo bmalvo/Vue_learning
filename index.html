@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First page in Vue</title>
+    <style>
+        .pinkBG {
+            background-color: lightpink;
+        }
+        .seagreenBG {
+            background-color: lightseagreen;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <h1>{{message}}</h1>
-        <h2>{{'Random number: ' + Math.ceil(Math.random() * 6 )}}</h2>
+        <h1 v-bind:class="vueClass1">{{message}}</h1>
+        <h2 v-bind:class="vueClass2">
+            {{'Random number: ' + Math.ceil(Math.random() * 6 )}}
+        </h2>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -18,7 +28,9 @@
   const app = Vue.createApp({
     data() {
       return {
-        message: "Hello World!"
+        message: "Hello World!",
+        vueClass1: 'pinkBG',
+        vueClass2: 'seagreenBG'
       }
     }
   })
