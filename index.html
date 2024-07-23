@@ -29,6 +29,9 @@
         <div v-show="vShow">
             <p>Lorem ipsum dolor sit amet.</p>
         </div>
+        <ol>
+            <li v-for="food in manyFood">{{food}}</li>
+        </ol>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -45,6 +48,7 @@
         stockCount : 1,
         text: 'I like pizza and tacos',
         vShow: true,
+        manyFood: ['pizza', 'burger', 'taco', 'pad-thai', 'crunchy snake']
       }
     }
   })
