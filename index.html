@@ -39,7 +39,9 @@
             <li v-for="food in manyFood">{{food}}</li>
         </ol>
         <button v-on:click="count++">click counter</button><span v-bind:style="{margin: 15 + 'px'}">{{count}}</span>
-        <p v-bind:class="vueClass3">I change color if You click me</p>
+        <p v-on:click="changeColor" v-bind:class="vueClass3">I change color if You click me</p>
+        <input v-on:input="inpCounter++" type="text">
+        <p>{{'Input event occurs: ' + inpCounter}}</p>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -60,8 +62,17 @@
         vShow: true,
         manyFood: ['pizza', 'burger', 'taco', 'pad-thai', 'crunchy snake'],
         count: 0,
-        // changeColor: {class: 'vueClass3'? 'vueClass4' : 'vueClass3'}
+        inpCounter: 0
       }
+    },
+    methods: {
+        changeColor() {
+            if (this.vueClass3 === 'textOrange') {
+                this.vueClass3 = 'textGreen'
+            } else {
+                this.vueClass3 = 'textOrange'
+            }
+        }
     }
   })
 
