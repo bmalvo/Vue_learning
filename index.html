@@ -11,6 +11,12 @@
         .seagreenBG {
             background-color: lightseagreen;
         }
+        .textGreen {
+            color: darkgreen;
+        }
+        .textOrange {
+            color:darkorange
+        }
     </style>
 </head>
 <body>
@@ -32,6 +38,8 @@
         <ol>
             <li v-for="food in manyFood">{{food}}</li>
         </ol>
+        <button v-on:click="count++">click counter</button><span v-bind:style="{margin: 15 + 'px'}">{{count}}</span>
+        <p v-bind:class="vueClass3">I change color if You click me</p>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -44,11 +52,15 @@
         message: "Hello World!",
         vueClass1: 'pinkBG',
         vueClass2: 'seagreenBG',
+        vueClass3: 'textGreen',
+        vueclass4: 'textOrange',
         size: 24,
         stockCount : 1,
         text: 'I like pizza and tacos',
         vShow: true,
-        manyFood: ['pizza', 'burger', 'taco', 'pad-thai', 'crunchy snake']
+        manyFood: ['pizza', 'burger', 'taco', 'pad-thai', 'crunchy snake'],
+        count: 0,
+        // changeColor: {class: 'vueClass3'? 'vueClass4' : 'vueClass3'}
       }
     }
   })
