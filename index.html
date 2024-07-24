@@ -23,6 +23,10 @@
             background-color: rgb(87, 241, 241);
             padding: 20px;
         }
+        .impClass {
+            background-color: chartreuse;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -58,11 +62,18 @@
             <p>Add item</p>
             <p>Item name: <input type="text" required v-model="itemName"></p>
             <p>How many: <input type="number" v-model="itemNumber"></p>
+            <p>
+                Important?
+                <label for="">
+                    <input type="checkbox" v-model="itemImportant">
+                    {{important}}
+                </label>
+            </p>
             <button type="submit">add item</button>
         </form>
         <h3>Shoping list</h3>
         <ul>
-            <li v-for="item in shopingList">{{item.name}}, {{item.number}}</li>
+            <li v-for="item in shopingList" v-bind:class="{impClass: item.important}">{{item.name}}, {{item.number}}</li>
         </ul>
     </div>
 
@@ -91,6 +102,7 @@
         doubleTxt: '',
         itemName: null,
         itemNumber: null,
+        itemImportant: false,
         shopingList: [{name: 'tomato', number: 5}]
       }
     },
@@ -112,11 +124,13 @@
         addItem() {
             let item = {
                 name: this.itemName,
-                number: this.itemNumber
+                number: this.itemNumber,
+                important: this.itemImportant
             }
             this.shopingList.push(item);
             this.itemName = null;
             this.itemNumber = null;
+            this.itemImportant = false
         }
     }
   })
